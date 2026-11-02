@@ -210,8 +210,8 @@
   </main>
 
   <script>
-    // Aapka naya Apps Script Web App URL
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyhfUNMdq2Sv0r6Xl4tqvW0Hqoe4b3j5MNrjaOeXvWJxszu-daGMmY0j4fsbTCSFdbZJg/exec";
+    // Your newest Apps Script Web App URL
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyW8fgIUMn0wFRaz5_pgXvzgN5hyQx4ocnP4oSxoKO5-kq5CjVcff8B0xKYAiLmhTYWrg/exec";
 
     const form = document.getElementById("axonRegistrationForm");
     const submitBtn = document.getElementById("submitBtn");
@@ -223,7 +223,7 @@
       submitBtn.textContent = "Submitting...";
       submitBtn.disabled = true;
 
-      // Apps Script backend ke parameters ke mutabiq keys set ki gayi hain
+      // Ensure form keys precisely match the keys defined in your backend Apps Script variables
       const formData = new FormData();
       formData.append("name", document.getElementById("fullName").value.trim());
       formData.append("email", document.getElementById("emailAddress").value.trim());
