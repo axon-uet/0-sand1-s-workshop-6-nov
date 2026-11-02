@@ -1,306 +1,272 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>0s and 1s in Action | AXON Workshop Portal</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Space Grotesk & Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;900&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-    <style>
-        /* Neo-Brutalist Technical Dark Theme */
-        body {
-            background-color: #121212;
-            background-image: radial-gradient(#262626 1.8px, transparent 1.8px);
-            background-size: 24px 24px;
-            font-family: 'Inter', sans-serif;
-            color: #ffffff;
-        }
-        .brutal-card {
-            background-color: #161616;
-            border: 4px solid #ffffff;
-            box-shadow: 10px 10px 0px #76ff03;
-        }
-        .brutal-title-box {
-            background-color: #76ff03;
-            border: 4px solid #000000;
-            box-shadow: 7px 7px 0px #000000;
-            color: #000000;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        .brutal-subtitle-box {
-            background-color: #0d0d0d;
-            border: 3px solid #ff2a2a;
-            box-shadow: 5px 5px 0px #ff2a2a;
-        }
-        .brutal-module {
-            background-color: #0f0f0f;
-            border: 3px solid #ffffff;
-            box-shadow: 5px 5px 0px #ffffff;
-            transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-        }
-        .brutal-module:hover {
-            transform: translate(-3px, -3px);
-            box-shadow: 8px 8px 0px #76ff03;
-            border-color: #76ff03;
-        }
-        .brutal-schedule {
-            background-color: #ffea00;
-            border: 4px solid #000000;
-            box-shadow: 7px 7px 0px #ff5500;
-            color: #000000;
-        }
-        .brutal-input {
-            background-color: #0d0d0d;
-            border: 3px solid #ffffff;
-            color: #ffffff;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .brutal-input:focus {
-            outline: none;
-            border-color: #76ff03;
-            box-shadow: 4px 4px 0px #76ff03;
-        }
-        .brutal-btn {
-            background-color: #76ff03;
-            border: 4px solid #000000;
-            box-shadow: 6px 6px 0px #ffffff;
-            color: #000000;
-            font-family: 'Space Grotesk', sans-serif;
-            transition: transform 0.1s ease, box-shadow 0.1s ease;
-        }
-        .brutal-btn:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 8px 8px 0px #ffffff;
-        }
-        .brutal-btn:active {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px #ffffff;
-        }
-        .success-card {
-            background-color: #161616;
-            border: 4px solid #76ff03;
-            box-shadow: 10px 10px 0px #76ff03;
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #121212;
-            border-left: 2px solid #333;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #76ff03;
-            border: 2px solid #000;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0s and 1s in Action | AXON Workshop Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;900&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #121212;
+      background-image: radial-gradient(#262626 1.8px, transparent 1.8px);
+      background-size: 24px 24px;
+      font-family: 'Inter', sans-serif;
+      color: #ffffff;
+    }
+    .brutal-card {
+      background-color: #161616;
+      border: 4px solid #76ff03;
+      border-radius: 16px;
+      box-shadow: 10px 10px 0px #76ff03;
+    }
+    .brutal-title-box {
+      background-color: #76ff03;
+      border: 4px solid #000000;
+      border-radius: 14px;
+      box-shadow: 7px 7px 0px #000000;
+      color: #000000;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .brutal-subtitle-box {
+      background-color: #0d0d0d;
+      border: 3px solid #ff2a2a;
+      border-radius: 10px;
+      box-shadow: 5px 5px 0px #ff2a2a;
+    }
+    .brutal-module {
+      background-color: #0f0f0f;
+      border: 2px solid #ffffff;
+      border-radius: 10px;
+      box-shadow: 4px 4px 0px #ffffff;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+    .brutal-module:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #76ff03;
+      border-color: #76ff03;
+    }
+    .brutal-schedule {
+      background-color: #ffea00;
+      border: 3px solid #ff5500;
+      border-radius: 12px;
+      box-shadow: 6px 6px 0px #ff5500;
+      color: #000000;
+    }
+    .brutal-input {
+      background-color: #0d0d0d;
+      border: 2px solid #ffffff;
+      border-radius: 10px;
+      color: #ffffff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .brutal-input:focus {
+      outline: none;
+      border-color: #76ff03;
+      box-shadow: 4px 4px 0px #76ff03;
+    }
+    .brutal-btn {
+      background-color: #76ff03;
+      color: #000000;
+      border: 3px solid #000000;
+      border-radius: 12px;
+      box-shadow: 6px 6px 0px #ffffff;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .brutal-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 8px 8px 0px #ffffff;
+    }
+    .brutal-btn:active {
+      transform: translate(3px, 3px);
+      box-shadow: 2px 2px 0px #ffffff;
+    }
+  </style>
 </head>
-<body class="min-hidden py-8 px-4 sm:px-6">
+<body class="min-h-screen py-8 px-4 sm:px-6 flex justify-center items-start">
 
-    <div class="max-w-3xl mx-auto">
-        
-        <!-- Top Header Bar -->
-        <header class="bg-[#0b0b0b] border-3 border-white p-4 mb-6 shadow-[6px_6px_0px_#ffffff] flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="flex items-center space-x-3">
-                <div class="bg-white p-2 border-2 border-black">
-                    <!-- Official AXON Logo Monogram Badge -->
-                    <img src="https://lh3.googleusercontent.com/d/189oq0rxEUv-HxFQ_rsP-wvtQS4JCzkRn" alt="AXON Logo" class="h-8 w-auto object-contain block" onerror="this.onerror=null; this.src='https://placehold.co/100x40/000000/76ff03?text=AXON';">
-                </div>
-                <span class="font-black text-xl tracking-widest uppercase">AXON PRESENTS</span>
-            </div>
-            <div class="bg-[#1f1f1f] border-2 border-[#76ff03] px-4 py-1.5 text-xs font-black tracking-widest text-[#76ff03] uppercase shadow-[3px_3px_0px_#76ff03]">
-                FT. THE MECHATROLOGY
-            </div>
-        </header>
+  <main class="w-full max-w-2xl brutal-card p-6 sm:p-10 my-4">
+    
+    <!-- Top Brand Header -->
+    <header class="flex flex-wrap justify-between items-center gap-4 pb-5 mb-7 border-b-2 border-neutral-800">
+      <div class="flex items-center gap-3">
+        <div class="bg-white p-1.5 rounded-lg border-2 border-[#76ff03] shadow-[3px_3px_0px_#76ff03]">
+          <img src="https://lh3.googleusercontent.com/d/189oq0rxEUv-HxFQ_rsP-wvtQS4JCzkRn" alt="AXON Logo" class="h-8 w-auto object-contain">
+        </div>
+        <span class="font-black text-base sm:text-lg tracking-widest uppercase">AXON PRESENTS</span>
+      </div>
+      <span class="bg-neutral-900 border border-neutral-700 rounded-md px-3 py-1 text-xs font-extrabold tracking-widest uppercase text-neutral-300">
+        FT. THE MECHATROLOGY
+      </span>
+    </header>
 
-        <!-- Main Poster Hero Container -->
-        <main class="brutal-card p-6 sm:p-10 mb-8">
-            
-            <!-- Giant Bold Hero Title Box -->
-            <div class="text-center mb-8">
-                <div class="brutal-title-box p-6 sm:p-10 mb-6">
-                    <h1 class="text-4xl sm:text-6xl font-black tracking-tighter uppercase leading-none">
-                        0S AND 1S <br>IN ACTION
-                    </h1>
-                </div>
-                <div class="brutal-subtitle-box py-3 px-6 inline-block">
-                    <p class="text-xs sm:text-sm font-black tracking-widest uppercase text-white">
-                        A HANDS-ON DIGITAL LOGIC DESIGN & BREADBOARDING WORKSHOP
-                    </p>
-                </div>
-            </div>
+    <!-- Main Poster Title -->
+    <section class="brutal-title-box p-5 sm:p-7 text-center mb-5">
+      <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight leading-none">
+        0s AND 1s IN ACTION
+      </h1>
+    </section>
 
-            <!-- Infographics & Session Breakdown Section -->
-            <div class="mb-8">
-                <div class="text-xs font-black text-[#76ff03] tracking-widest uppercase mb-3">
-                    /// WHAT YOU WILL EXPERIENCE:
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="brutal-module p-4 flex items-center space-x-3">
-                        <span class="text-[#76ff03] text-lg font-black">■</span>
-                        <span class="text-sm font-black uppercase tracking-wide">Breadboarding Basics</span>
-                    </div>
-                    <div class="brutal-module p-4 flex items-center space-x-3">
-                        <span class="text-[#76ff03] text-lg font-black">■</span>
-                        <span class="text-sm font-black uppercase tracking-wide">BCD & Decoders</span>
-                    </div>
-                    <div class="brutal-module p-4 flex items-center space-x-3">
-                        <span class="text-[#76ff03] text-lg font-black">■</span>
-                        <span class="text-sm font-black uppercase tracking-wide">Logic Gates in Real Life</span>
-                    </div>
-                    <div class="brutal-module p-4 flex items-center space-x-3">
-                        <span class="text-[#76ff03] text-lg font-black">■</span>
-                        <span class="text-sm font-black uppercase tracking-wide">Sequential LED Circuits</span>
-                    </div>
-                </div>
-            </div>
+    <!-- Red Border Subtitle -->
+    <section class="brutal-subtitle-box py-3 px-4 text-center mb-7">
+      <p class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white">
+        A Hands-On Digital Logic Design & Breadboarding Workshop
+      </p>
+    </section>
 
-            <!-- Schedule Warning Banner -->
-            <div class="brutal-schedule p-5 text-center mb-10">
-                <div class="text-xs font-black text-[#b91c1c] uppercase tracking-widest mb-1">
-                    [ SCHEDULE LOCKED ]
-                </div>
-                <div class="text-lg sm:text-2xl font-black tracking-tight uppercase">
-                    WEDNESDAY, NOV 4, 2026 | 6:00 PM ONWARDS
-                </div>
-                <div class="text-xs font-extrabold text-black mt-1 uppercase tracking-wider">
-                    Online Workshop (Live Hardware Demonstration)
-                </div>
-            </div>
+    <!-- Infographics / What You Will Experience -->
+    <section class="mb-7">
+      <h2 class="text-xs font-black uppercase tracking-widest text-[#76ff03] mb-3">
+        What You Will Experience:
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div class="brutal-module p-3.5">
+          <span class="text-xs font-black text-[#76ff03] block">MODULE 01</span>
+          <p class="font-extrabold text-sm uppercase mt-0.5">Breadboarding Basics</p>
+        </div>
+        <div class="brutal-module p-3.5">
+          <span class="text-xs font-black text-[#76ff03] block">MODULE 02</span>
+          <p class="font-extrabold text-sm uppercase mt-0.5">Logic Gates in Real Life</p>
+        </div>
+        <div class="brutal-module p-3.5">
+          <span class="text-xs font-black text-[#76ff03] block">MODULE 03</span>
+          <p class="font-extrabold text-sm uppercase mt-0.5">BCD & Decoders</p>
+        </div>
+        <div class="brutal-module p-3.5">
+          <span class="text-xs font-black text-[#76ff03] block">MODULE 04</span>
+          <p class="font-extrabold text-sm uppercase mt-0.5">Sequential LED Circuits</p>
+        </div>
+      </div>
+    </section>
 
-            <!-- Registration Form Section -->
-            <div id="form-container" class="bg-[#0b0b0b] border-4 border-white p-6 sm:p-8 shadow-[8px_8px_0px_#ffffff]">
-                <div class="text-center mb-6">
-                    <h3 class="text-xl sm:text-2xl font-black uppercase tracking-wider text-[#76ff03] mb-2">
-                        SECURE YOUR SEAT
-                    </h3>
-                    <p class="text-xs sm:text-sm font-bold text-gray-300">
-                        Fill out the details below. Your registration will be recorded securely, and confirmation details will be sent to your email.
-                    </p>
-                </div>
+    <!-- Schedule Warning Banner -->
+    <section class="brutal-schedule p-4 text-center mb-8">
+      <div class="text-[11px] font-black uppercase tracking-widest text-red-700 mb-0.5">
+        Workshop Schedule
+      </div>
+      <div class="text-base sm:text-lg font-black uppercase tracking-wide">
+        Wednesday, Nov 4, 2026 | 6:00 PM Onwards
+      </div>
+      <div class="text-xs font-bold uppercase mt-1 opacity-85">
+        Online Workshop (Live Hardware Demonstration)
+      </div>
+    </section>
 
-                <!-- Hidden Iframe for Silent Google Form Submission -->
-                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(isSubmitted) { showSuccessScreen(); }"></iframe>
+    <!-- Registration Form -->
+    <div id="formSection">
+      <form id="axonRegistrationForm" class="space-y-5">
+        <div>
+          <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
+            Full Name *
+          </label>
+          <input type="text" id="fullName" required placeholder="Enter your full name (for certificate)" class="w-full p-3.5 brutal-input text-sm font-semibold">
+        </div>
 
-                <!-- Custom HTML Form Submitting to Google Form Endpoint -->
-                <form id="registration-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeMWhEnFHl4UFY1F3CWRxJdE_7Islmm6N2keymRWSV_wtqzEw/formResponse" method="POST" target="hidden_iframe" onsubmit="handleFormSubmit(event)" class="space-y-5">
-                    
-                    <!-- Full Name -->
-                    <div>
-                        <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
-                            Full Name <span class="text-[#ff2a2a]">*</span>
-                        </label>
-                        <input type="text" name="entry.1000001" required placeholder="e.g. Ali Khan" class="brutal-input w-full p-3.5 text-sm font-semibold rounded-none">
-                    </div>
+        <div>
+          <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
+            Email Address *
+          </label>
+          <input type="email" id="emailAddress" required placeholder="Your confirmation email will be sent here" class="w-full p-3.5 brutal-input text-sm font-semibold">
+        </div>
 
-                    <!-- Email Address -->
-                    <div>
-                        <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
-                            Email Address <span class="text-[#ff2a2a]">*</span>
-                        </label>
-                        <input type="email" name="entry.1000002" required placeholder="e.g. ali@example.com" class="brutal-input w-full p-3.5 text-sm font-semibold rounded-none">
-                    </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
+              Roll Number / Reg ID *
+            </label>
+            <input type="text" id="rollNumber" required placeholder="e.g., 2025-CS-101" class="w-full p-3.5 brutal-input text-sm font-semibold">
+          </div>
+          <div>
+            <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
+              Department & Semester *
+            </label>
+            <input type="text" id="department" required placeholder="e.g., IMAC - 3rd Sem" class="w-full p-3.5 brutal-input text-sm font-semibold">
+          </div>
+        </div>
 
-                    <!-- Roll Number / Registration ID -->
-                    <div>
-                        <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
-                            Roll Number / Registration ID <span class="text-[#ff2a2a]">*</span>
-                        </label>
-                        <input type="text" name="entry.1000003" required placeholder="e.g. 2026-MECH-45" class="brutal-input w-full p-3.5 text-sm font-semibold rounded-none">
-                    </div>
+        <div>
+          <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
+            WhatsApp Number *
+          </label>
+          <input type="tel" id="whatsappNumber" required placeholder="e.g., 0300-1234567" class="w-full p-3.5 brutal-input text-sm font-semibold">
+        </div>
 
-                    <!-- Department & Semester -->
-                    <div>
-                        <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
-                            Department & Semester <span class="text-[#ff2a2a]">*</span>
-                        </label>
-                        <input type="text" name="entry.1000004" required placeholder="e.g. Mechatronics - 3rd Semester" class="brutal-input w-full p-3.5 text-sm font-semibold rounded-none">
-                    </div>
+        <div>
+          <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
+            Have you ever built a circuit on a breadboard before? *
+          </label>
+          <select id="experience" required class="w-full p-3.5 brutal-input text-sm font-semibold">
+            <option value="" disabled selected>Select your experience level</option>
+            <option value="Never (Only studied theory)">Never (Only studied theory)</option>
+            <option value="Tried once or twice">Tried once or twice</option>
+            <option value="Yes, I have a breadboard with me right now">Yes, I have a breadboard with me right now</option>
+          </select>
+        </div>
 
-                    <!-- WhatsApp Number -->
-                    <div>
-                        <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
-                            WhatsApp Number <span class="text-[#ff2a2a]">*</span>
-                        </label>
-                        <input type="tel" name="entry.1000005" required placeholder="e.g. 0300-1234567" class="brutal-input w-full p-3.5 text-sm font-semibold rounded-none">
-                    </div>
-
-                    <!-- Breadboarding Experience -->
-                    <div>
-                        <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
-                            Breadboarding Experience <span class="text-[#ff2a2a]">*</span>
-                        </label>
-                        <select name="entry.1000006" required class="brutal-input w-full p-3.5 text-sm font-semibold rounded-none cursor-pointer">
-                            <option value="" disabled selected>Select your experience level</option>
-                            <option value="Never (Only studied theory)">Never (Only studied theory)</option>
-                            <option value="Tried once or twice">Tried once or twice</option>
-                            <option value="Yes, I have a breadboard with me right now">Yes, I have a breadboard with me right now</option>
-                        </select>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="pt-4">
-                        <button type="submit" class="brutal-btn w-full py-4 text-base font-black uppercase tracking-wider cursor-pointer">
-                            REGISTER NOW →
-                        </button>
-                    </div>
-
-                </form>
-            </div>
-
-            <!-- Success Screen (Hidden by default) -->
-            <div id="success-screen" class="success-card p-8 text-center hidden">
-                <div class="inline-block bg-[#76ff03] text-black font-black text-xs px-3 py-1 mb-4 uppercase tracking-widest border-2 border-black">
-                    SUCCESSFULLY REGISTERED
-                </div>
-                <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter text-white mb-4">
-                    WELCOME ABOARD!
-                </h2>
-                <p class="text-sm font-medium text-gray-300 mb-6 leading-relaxed">
-                    Your registration for <strong class="text-[#76ff03]">0s and 1s in Action</strong> has been recorded successfully. A confirmation email has been dispatched to your inbox.
-                </p>
-                <div class="bg-[#0b0b0b] border-2 border-white p-4 mb-8 text-xs font-bold text-gray-300">
-                    ⚠️ Important: The live workshop link, pinout guides, and announcements will be shared exclusively inside the official WhatsApp group.
-                </div>
-                <a href="https://chat.whatsapp.com/LnwFvDIRroF7JE2Dj4Dx1W?s=cl&p=a&mlu=4&ilr=4&iam=2" target="_blank" class="brutal-btn inline-block w-full sm:w-auto px-8 py-4 text-sm font-black uppercase tracking-wider text-black no-underline">
-                    JOIN OFFICIAL WHATSAPP GROUP →
-                </a>
-            </div>
-
-        </main>
-
-        <!-- Footer -->
-        <footer class="text-center text-xs font-black tracking-widest text-gray-400 uppercase pb-6">
-            <p>ORGANIZED BY AXON • IMAC DEPARTMENT</p>
-        </footer>
-
+        <button type="submit" id="submitBtn" class="w-full py-4 brutal-btn font-black text-base uppercase tracking-wider mt-4 cursor-pointer">
+          Complete Registration →
+        </button>
+      </form>
     </div>
 
-    <script>
-        let isSubmitted = false;
+    <!-- Confirmation Screen (No WhatsApp link on website, directs to Email) -->
+    <div id="thankYouSection" class="hidden text-center py-10 px-4 border-2 border-[#76ff03] rounded-xl bg-neutral-900">
+      <h2 class="text-2xl sm:text-3xl font-black uppercase text-[#76ff03] mb-3">
+        Registration Confirmed!
+      </h2>
+      <p class="text-sm sm:text-base text-neutral-300 leading-relaxed max-w-md mx-auto">
+        Your response has been recorded. Please check your email inbox for your official confirmation, calendar invite, and the participants' group link.
+      </p>
+    </div>
 
-        function handleFormSubmit(event) {
-            isSubmitted = true;
-            // Let the form submit naturally to the hidden iframe
-            // and trigger the success view immediately for instant user feedback
-            setTimeout(function() {
-                showSuccessScreen();
-            }, 300);
-        }
+  </main>
 
-        function showSuccessScreen() {
-            const formContainer = document.getElementById('form-container');
-            const successScreen = document.getElementById('success-screen');
-            if (formContainer && successScreen) {
-                formContainer.style.display = 'none';
-                successScreen.classList.remove('hidden');
-                window.scrollTo({ top: successScreen.offsetTop - 50, behavior: 'smooth' });
-            }
-        }
-    </script>
+  <script>
+    // 1. Your Google Form Action URL (Already set to your form ID)
+    const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeMWhEnFHl4UFY1F3CWRxJdE_7Islmm6N2keymRWSV_wtqzEw/formResponse";
 
+    // 2. IMPORTANT: Replace these 6 numbers with the real entry.XXXXXX IDs from your Pre-filled Link
+    const ENTRY_IDS = {
+      fullName:       "entry.111111111", // Replace with Name entry ID
+      emailAddress:   "entry.222222222", // Replace with Email entry ID
+      rollNumber:     "entry.333333333", // Replace with Roll Number entry ID
+      department:     "entry.444444444", // Replace with Department entry ID
+      whatsappNumber: "entry.555555555", // Replace with WhatsApp entry ID
+      experience:     "entry.666666666"  // Replace with Experience entry ID
+    };
+
+    const form = document.getElementById("axonRegistrationForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const formSection = document.getElementById("formSection");
+    const thankYouSection = document.getElementById("thankYouSection");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      submitBtn.textContent = "Submitting...";
+      submitBtn.disabled = true;
+
+      const formData = new FormData();
+      formData.append(ENTRY_IDS.fullName, document.getElementById("fullName").value.trim());
+      formData.append(ENTRY_IDS.emailAddress, document.getElementById("emailAddress").value.trim());
+      formData.append(ENTRY_IDS.rollNumber, document.getElementById("rollNumber").value.trim());
+      formData.append(ENTRY_IDS.department, document.getElementById("department").value.trim());
+      formData.append(ENTRY_IDS.whatsappNumber, document.getElementById("whatsappNumber").value.trim());
+      formData.append(ENTRY_IDS.experience, document.getElementById("experience").value);
+
+      fetch(GOOGLE_FORM_ACTION_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+      }).then(() => {
+        formSection.classList.add("hidden");
+        thankYouSection.classList.remove("hidden");
+      }).catch((err) => {
+        console.error("Submission Error:", err);
+        alert("Something went wrong. Please check your internet connection.");
+        submitBtn.textContent = "Complete Registration →";
+        submitBtn.disabled = false;
+      });
+    });
+  </script>
 </body>
 </html>
