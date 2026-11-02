@@ -209,7 +209,7 @@
       </form>
     </div>
 
-    <!-- Confirmation Screen (No WhatsApp link on website, directs to Email) -->
+    <!-- Confirmation Screen -->
     <div id="thankYouSection" class="hidden text-center py-10 px-4 border-2 border-[#76ff03] rounded-xl bg-neutral-900">
       <h2 class="text-2xl sm:text-3xl font-black uppercase text-[#76ff03] mb-3">
         Registration Confirmed!
@@ -222,17 +222,17 @@
   </main>
 
   <script>
-    // 1. Your Google Form Action URL (Already set to your form ID)
-    const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeMWhEnFHl4UFY1F3CWRxJdE_7Islmm6N2keymRWSV_wtqzEw/viewform?usp=pp_url&entry.240826661=abc&entry.121230295=empty@gmail.com&entry.1812809165=123&entry.1438986444=null&entry.331787626=03000000000&entry.701106517=Never+(Only+studied+theory)";
+    // Corrected Google Form Action URL (formResponse endpoint)
+    const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeMWhEnFHl4UFY1F3CWRxJdE_7Islmm6N2keymRWSV_wtqzEw/formResponse";
 
-    // 2. IMPORTANT: Replace these 6 numbers with the real entry.XXXXXX IDs from your Pre-filled Link
+    // Verified Entry IDs mapped from your Google Form
     const ENTRY_IDS = {
-      fullName:       "entry.111111111", // Replace with Name entry ID
-      emailAddress:   "entry.222222222", // Replace with Email entry ID
-      rollNumber:     "entry.333333333", // Replace with Roll Number entry ID
-      department:     "entry.444444444", // Replace with Department entry ID
-      whatsappNumber: "entry.555555555", // Replace with WhatsApp entry ID
-      experience:     "entry.666666666"  // Replace with Experience entry ID
+      fullName:       "entry.240826661",
+      emailAddress:   "entry.121230295",
+      rollNumber:     "entry.1812809165",
+      department:     "entry.1438986444",
+      whatsappNumber: "entry.331787626",
+      experience:     "entry.701106517"
     };
 
     const form = document.getElementById("axonRegistrationForm");
