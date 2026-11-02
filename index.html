@@ -114,7 +114,7 @@
       </p>
     </section>
 
-    <!-- Infographics / What You Will Experience -->
+    <!-- Infographics -->
     <section class="mb-7">
       <h2 class="text-xs font-black uppercase tracking-widest text-[#76ff03] mb-3">
         What You Will Experience:
@@ -156,45 +156,33 @@
     <div id="formSection">
       <form id="axonRegistrationForm" class="space-y-5">
         <div>
-          <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
-            Full Name *
-          </label>
-          <input type="text" id="fullName" required placeholder="Enter your full name (for certificate)" class="w-full p-3.5 brutal-input text-sm font-semibold">
+          <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">Full Name *</label>
+          <input type="text" id="fullName" required placeholder="Enter your full name" class="w-full p-3.5 brutal-input text-sm font-semibold">
         </div>
 
         <div>
-          <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
-            Email Address *
-          </label>
+          <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">Email Address *</label>
           <input type="email" id="emailAddress" required placeholder="Your confirmation email will be sent here" class="w-full p-3.5 brutal-input text-sm font-semibold">
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
-              Roll Number / Reg ID *
-            </label>
+            <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">Roll Number / Reg ID *</label>
             <input type="text" id="rollNumber" required placeholder="e.g., 2025-CS-101" class="w-full p-3.5 brutal-input text-sm font-semibold">
           </div>
           <div>
-            <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
-              Department & Semester *
-            </label>
+            <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">Department & Semester *</label>
             <input type="text" id="department" required placeholder="e.g., IMAC - 3rd Sem" class="w-full p-3.5 brutal-input text-sm font-semibold">
           </div>
         </div>
 
         <div>
-          <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
-            WhatsApp Number *
-          </label>
+          <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">WhatsApp Number *</label>
           <input type="tel" id="whatsappNumber" required placeholder="e.g., 0300-1234567" class="w-full p-3.5 brutal-input text-sm font-semibold">
         </div>
 
         <div>
-          <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">
-            Have you ever built a circuit on a breadboard before? *
-          </label>
+          <label class="block text-xs font-black uppercase tracking-wider text-[#76ff03] mb-2">Breadboard Experience *</label>
           <select id="experience" required class="w-full p-3.5 brutal-input text-sm font-semibold">
             <option value="" disabled selected>Select your experience level</option>
             <option value="Never (Only studied theory)">Never (Only studied theory)</option>
@@ -222,18 +210,8 @@
   </main>
 
   <script>
-    // Corrected Google Form Action URL (formResponse endpoint)
-    const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeMWhEnFHl4UFY1F3CWRxJdE_7Islmm6N2keymRWSV_wtqzEw/formResponse";
-
-    // Verified Entry IDs mapped from your Google Form
-    const ENTRY_IDS = {
-      fullName:       "entry.240826661",
-      emailAddress:   "entry.121230295",
-      rollNumber:     "entry.1812809165",
-      department:     "entry.1438986444",
-      whatsappNumber: "entry.331787626",
-      experience:     "entry.701106517"
-    };
+    // Aapka naya Apps Script Web App URL
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw-zcboUOnZ4Dem84inh5DKrfFz8u2ZBoLRtKug1qp-vKzZnKn1ckbSi4dFu0jRQgAi2g/exec";
 
     const form = document.getElementById("axonRegistrationForm");
     const submitBtn = document.getElementById("submitBtn");
@@ -245,22 +223,29 @@
       submitBtn.textContent = "Submitting...";
       submitBtn.disabled = true;
 
+      // Apps Script backend ke parameters ke mutabiq keys set ki gayi hain
       const formData = new FormData();
-      formData.append(ENTRY_IDS.fullName, document.getElementById("fullName").value.trim());
-      formData.append(ENTRY_IDS.emailAddress, document.getElementById("emailAddress").value.trim());
-      formData.append(ENTRY_IDS.rollNumber, document.getElementById("rollNumber").value.trim());
-      formData.append(ENTRY_IDS.department, document.getElementById("department").value.trim());
-      formData.append(ENTRY_IDS.whatsappNumber, document.getElementById("whatsappNumber").value.trim());
-      formData.append(ENTRY_IDS.experience, document.getElementById("experience").value);
+      formData.append("name", document.getElementById("fullName").value.trim());
+      formData.append("email", document.getElementById("emailAddress").value.trim());
+      formData.append("rollno", document.getElementById("rollNumber").value.trim());
+      formData.append("department", document.getElementById("department").value.trim());
+      formData.append("whatsapp", document.getElementById("whatsappNumber").value.trim());
+      formData.append("experience", document.getElementById("experience").value);
 
-      fetch(GOOGLE_FORM_ACTION_URL, {
+      fetch(SCRIPT_URL, {
         method: "POST",
-        mode: "no-cors",
         body: formData
-      }).then(() => {
-        formSection.classList.add("hidden");
-        thankYouSection.classList.remove("hidden");
-      }).catch((err) => {
+      })
+      .then(response => response.json())
+      .then(data => {
+        if(data.result === "success") {
+          formSection.classList.add("hidden");
+          thankYouSection.classList.remove("hidden");
+        } else {
+          throw new Error(data.message);
+        }
+      })
+      .catch((err) => {
         console.error("Submission Error:", err);
         alert("Something went wrong. Please check your internet connection.");
         submitBtn.textContent = "Complete Registration →";
